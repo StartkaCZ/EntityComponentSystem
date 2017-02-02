@@ -1,25 +1,25 @@
-#include "ControllerSystem.h"
+#include "AISystem.h"
 #include "PositionComponent.h"
-#include "ControllerComponent.h"
+#include "HealthComponent.h"
 
 #include <iostream>
 
 
-ControllerSystem::ControllerSystem()
+AISystem::AISystem()
 {
 }
 
 
-ControllerSystem::~ControllerSystem()
+AISystem::~AISystem()
 {
 }
 
 
-void ControllerSystem::AddGameObject(GameObject* gameObject)
+void AISystem::AddGameObject(GameObject* gameObject)
 {
 	_gameObjects.push_back(gameObject);
 }
-void ControllerSystem::RemoveGameObject(GameObject* gameObject)
+void AISystem::RemoveGameObject(GameObject* gameObject)
 {
 	for (int i = 0; i < _gameObjects.size(); i++)
 	{
@@ -30,45 +30,60 @@ void ControllerSystem::RemoveGameObject(GameObject* gameObject)
 		}
 	}
 }
-void ControllerSystem::Update()
+void AISystem::Update()
 {
 	for (int i = 0; i < _gameObjects.size(); i++)
 	{
 		switch (_gameObjects.at(i)->getType())
 		{
 		case GameObject::Type::Player:
-			std::cout << "Updating Player by the use of a controller ("
+			std::cout << "Updating Player AI ("
 				<< static_cast<PositionComponent*>(_gameObjects.at(i)->getComponent(IComponent::ComponentType::Position))->getX()
 				<< ", "
 				<< static_cast<PositionComponent*>(_gameObjects.at(i)->getComponent(IComponent::ComponentType::Position))->getY()
-				<< ")"
+				<< ") With health of: "
+				<< static_cast<HealthComponent*>(_gameObjects.at(i)->getComponent(IComponent::ComponentType::Health))->getHealth()
+				<< "/"
+				<< static_cast<HealthComponent*>(_gameObjects.at(i)->getComponent(IComponent::ComponentType::Health))->getMaxHealth()
 				<< std::endl;
 			break;
 
 		case GameObject::Type::Alien:
-			std::cout << "Updating Alien by the use of a controller ("
+			std::cout << "Updating Alien AI ("
 				<< static_cast<PositionComponent*>(_gameObjects.at(i)->getComponent(IComponent::ComponentType::Position))->getX()
 				<< ", "
 				<< static_cast<PositionComponent*>(_gameObjects.at(i)->getComponent(IComponent::ComponentType::Position))->getY()
 				<< ")"
+				<< ") With health of: "
+				<< static_cast<HealthComponent*>(_gameObjects.at(i)->getComponent(IComponent::ComponentType::Health))->getHealth()
+				<< "/"
+				<< static_cast<HealthComponent*>(_gameObjects.at(i)->getComponent(IComponent::ComponentType::Health))->getMaxHealth()
 				<< std::endl;
 			break;
 
 		case GameObject::Type::Dog:
-			std::cout << "Updating Dog by the use of a controller ("
+			std::cout << "Updating Dog AI ("
 				<< static_cast<PositionComponent*>(_gameObjects.at(i)->getComponent(IComponent::ComponentType::Position))->getX()
 				<< ", "
 				<< static_cast<PositionComponent*>(_gameObjects.at(i)->getComponent(IComponent::ComponentType::Position))->getY()
 				<< ")"
+				<< ") With health of: "
+				<< static_cast<HealthComponent*>(_gameObjects.at(i)->getComponent(IComponent::ComponentType::Health))->getHealth()
+				<< "/"
+				<< static_cast<HealthComponent*>(_gameObjects.at(i)->getComponent(IComponent::ComponentType::Health))->getMaxHealth()
 				<< std::endl;
 			break;
 
 		case GameObject::Type::Cat:
-			std::cout << "Updating Cat by the use of a controller ("
+			std::cout << "Updating Cat AI ("
 				<< static_cast<PositionComponent*>(_gameObjects.at(i)->getComponent(IComponent::ComponentType::Position))->getX()
 				<< ", "
 				<< static_cast<PositionComponent*>(_gameObjects.at(i)->getComponent(IComponent::ComponentType::Position))->getY()
 				<< ")"
+				<< ") With health of: "
+				<< static_cast<HealthComponent*>(_gameObjects.at(i)->getComponent(IComponent::ComponentType::Health))->getHealth()
+				<< "/"
+				<< static_cast<HealthComponent*>(_gameObjects.at(i)->getComponent(IComponent::ComponentType::Health))->getMaxHealth()
 				<< std::endl;
 			break;
 

@@ -110,7 +110,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="AISytem.h" />
+    <ClInclude Include="AISystem.h" />
     <ClInclude Include="ControllerComponent.h" />
     <ClInclude Include="ControllerSystem.h" />
     <ClInclude Include="GameObject.h" />
@@ -120,10 +120,14 @@
     <ClInclude Include="RendererSystem.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="AISytem.cpp" />
+    <ClCompile Include="AISystem.cpp" />
+    <ClCompile Include="ControllerComponent.cpp" />
     <ClCompile Include="ControllerSystem.cpp" />
     <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="HealthComponent.cpp" />
+    <ClCompile Include="IComponent.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="PositionComponent.cpp" />
     <ClCompile Include="RendererSystem.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

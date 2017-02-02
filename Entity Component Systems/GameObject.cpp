@@ -2,7 +2,8 @@
 
 
 
-GameObject::GameObject()
+GameObject::GameObject(Type type)
+	: _type(type)
 {
 }
 
@@ -11,7 +12,7 @@ GameObject::~GameObject()
 }
 
 
-void GameObject::AttachComponent(IComponent component)
+void GameObject::AttachComponent(IComponent* component)
 {
 	_components.push_back(component);
 }
@@ -19,7 +20,7 @@ void GameObject::DetachComponent(IComponent::ComponentType componentType)
 {
 	for (int i = 0; i < _components.size(); i++)
 	{
-		if (_components.at(i).getType() == componentType)
+		if (_components.at(i)->getType() == componentType)
 		{
 			_components.erase(_components.begin() + i);
 			break;
@@ -27,17 +28,22 @@ void GameObject::DetachComponent(IComponent::ComponentType componentType)
 	}
 }
 
-IComponent& GameObject::getComponent(IComponent::ComponentType componentType)
+IComponent* GameObject::getComponent(IComponent::ComponentType componentType)
 {
 	for (int i = 0; i < _components.size(); i++)
 	{
-		if (_components.at(i).getType() == componentType)
+		if (_components.at(i)->getType() == componentType)
 		{
 			return _components.at(i);
 		}
 	}
 }
-std::vector<IComponent>& GameObject::getComponents()
+std::vector<IComponent*>& GameObject::getComponents()
 {
 	return _components;
+}
+
+GameObject::Type GameObject::getType() const
+{
+	return _type;
 }

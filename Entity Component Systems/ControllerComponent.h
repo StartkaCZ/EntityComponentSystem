@@ -10,15 +10,3 @@ public:
 	ControllerComponent();
 	~ControllerComponent();
 };
-
-
-
-ControllerComponent::ControllerComponent()
-	: IComponent::IComponent(IComponent::ComponentType::Controller)
-{
-}
-
-
-ControllerComponent::~ControllerComponent()
-{
-}

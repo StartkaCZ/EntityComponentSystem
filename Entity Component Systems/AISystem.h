@@ -4,11 +4,11 @@
 
 
 
-class ControllerSystem
+class AISystem
 {
 public:
-			ControllerSystem();
-			~ControllerSystem();
+			AISystem();
+			~AISystem();
 
 	void	AddGameObject(GameObject* gameObject);
 	void	RemoveGameObject(GameObject* gameObject);
