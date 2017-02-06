@@ -35,7 +35,6 @@ int main()
 
 	gameObjects.push_back(CreateCat());
 	rendererSystem.AddGameObject(gameObjects.at(gameObjects.size() - 1));
-	aiSystem.AddGameObject(gameObjects.at(gameObjects.size() - 1));
 
 	gameObjects.push_back(CreateDog());
 	rendererSystem.AddGameObject(gameObjects.at(gameObjects.size() - 1));
@@ -80,7 +79,6 @@ GameObject* CreateCat()
 {
 	GameObject* cat = new GameObject(GameObject::Type::Cat);
 
-	cat->AttachComponent(new HealthComponent(50, 50));
 	cat->AttachComponent(new PositionComponent(15, 15));
 
 	return cat;
